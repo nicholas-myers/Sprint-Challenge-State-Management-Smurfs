@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { connect } from "react-redux"
-// import { fetchSmurfs } from ""
+import { fetchSmurfs } from "../actions/smurfActions"
 
 function SmurfList(props) {
     console.log(props.smurfs)
+    useEffect(()=>{
+        props.fetchSmurfs()
+    }, [])
     return (
-        <div> Smurfs go here</div>
+        <div className="smurfList">
+            <div> Smurfs go here</div>
+            {props.loadingSmurfs && <p>Creating your smurfs....</p>}
+        </div>
     )
 }
 
@@ -17,4 +23,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(SmurfList) 
+export default connect(mapStateToProps, {fetchSmurfs})(SmurfList) 
