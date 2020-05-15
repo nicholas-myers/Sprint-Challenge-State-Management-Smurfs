@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchSmurfs, postSmurf } from "../actions/smurfActions"
+import { postSmurf } from "../actions/smurfActions"
 
 const initialSmurfInputs = {
   smurfName: "",
@@ -9,9 +9,7 @@ const initialSmurfInputs = {
 };
 
 function SmurfForm(props) {
-    useEffect(() => {
-        props.fetchSmurfs();
-      }, []);
+
   const [smurfInputs, setSmurfInputs] = useState(initialSmurfInputs);
 
   const changeSmurfInput = (event) => {
@@ -71,4 +69,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {fetchSmurfs, postSmurf})(SmurfForm);
+export default connect(mapStateToProps, {postSmurf})(SmurfForm);

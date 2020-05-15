@@ -1,24 +1,32 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions/smurfActions";
-import Smurf from "./Smurf"
+import Smurf from "./Smurf";
+
+import styled from "styled-components";
+
+const Smurfs = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
 
 function SmurfList(props) {
-//   console.log(props.smurfs);
+  //   console.log(props.smurfs);
   useEffect(() => {
     props.fetchSmurfs();
   }, []);
   return (
-    <div className="smurfList">
-      <div> Smurfs go here</div>
-      {props.loadingSmurfs && <p>Creating your smurfs....</p>}
-      {props.smurfs.map((smurf) => {
+    <section>
+      <h2> Smurfs go here</h2>
+      <Smurfs>
+        {props.loadingSmurfs && <p>Creating your smurfs....</p>}
+        {props.smurfs.map((smurf) => {
           //   console.log(smurf)
-          return (
-            <Smurf smurf={smurf}/>
-          );
+          return <Smurf key={smurf.id} smurf={smurf} />;
         })}
-    </div>
+      </Smurfs>
+    </section>
   );
 }
 
