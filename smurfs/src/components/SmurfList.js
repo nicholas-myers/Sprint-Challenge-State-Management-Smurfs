@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions/smurfActions";
 
 function SmurfList(props) {
-//   console.log(props.smurfs);
+  console.log(props.smurfs);
   useEffect(() => {
     props.fetchSmurfs();
   }, []);
@@ -11,11 +11,11 @@ function SmurfList(props) {
     <div className="smurfList">
       <div> Smurfs go here</div>
       {props.loadingSmurfs && <p>Creating your smurfs....</p>}
-      {props.smurfs.map((smurf) => {
-          console.log(smurf)
+      {props.smurfs && props.smurfs.map((smurf) => {
+        //   console.log(smurf)
         return (
           <div className="smurf">
-            <h2>smurf.name</h2>
+            <h2>{smurf.name}</h2>
           </div>
         );
       })}

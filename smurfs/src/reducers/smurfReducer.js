@@ -21,7 +21,7 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingSmurfs: false,
-        smurf: action.payload,
+        smurfs: action.payload,
       };
       case FETCH_SMURF_FAILURE:
           return {
