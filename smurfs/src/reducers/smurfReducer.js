@@ -1,7 +1,8 @@
 import {
   INITIAL_SMURF_FETCH,
   FETCH_SMURF_SUCCESS,
-  FETCH_SMURF_FAILURE
+  FETCH_SMURF_FAILURE,
+  CREATE_SMURF
 } from "../actions/smurfActions";
 
 const initialState = {
@@ -28,6 +29,12 @@ export const smurfReducer = (state = initialState, action) => {
               ...state,
               smurfingError: "Get the smurf out of here Gargamel, there are no smurfs here!"
           }
+          case CREATE_SMURF:
+              console.log(action.payload)
+              return {
+                  ...state,
+                  smurfs: [...state.smurfs, action.payload]
+              }
     default:
       return state;
   }

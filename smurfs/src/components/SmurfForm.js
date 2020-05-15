@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { postSmurf } from "../actions/smurfActions"
 
 const initialSmurfInputs = {
   smurfName: "",
@@ -6,7 +8,7 @@ const initialSmurfInputs = {
   smurfHeight: "",
 };
 
-function SmurfForm() {
+function SmurfForm(props) {
   const [smurfInputs, setSmurfInputs] = useState(initialSmurfInputs);
 
   const changeSmurfInput = (event) => {
@@ -20,15 +22,19 @@ function SmurfForm() {
   const createSmurf = (event) => {
     event.preventDefault();
     const newSmurf = {
-        name: smurfInputs.smurfName,
-        age: smurfInputs.smurfAge,
-        height: smurfInputs.smurfHeight,
-        id: Date.now()
-    }
-
-    console.log(newSmurf)
-    setSmurfInputs(initialSmurfInputs)
+      name: smurfInputs.smurfName,
+      age: smurfInputs.smurfAge,
+      height: smurfInputs.smurfHeight,
+      id: Date.now(),
+    };
+    // console.log(newSmurf);
+    props.postSmurf(newSmurf)
+    setSmurfInputs(initialSmurfInputs);
+    
   };
+
+  useEffect(() => {
+  }, [])
 
   return (
     <form onSubmit={createSmurf}>
@@ -56,4 +62,12 @@ function SmurfForm() {
   );
 }
 
-export default SmurfForm;
+const mapStateToProps = (state) => {
+  return {
+    loadingSmurfs: state.loadingSmurfs,
+    smurfs: state.smurfs,
+    smurfingError: state.smurfingError,
+  };
+};
+
+export default connect(mapStateToProps, {postSmurf})(SmurfForm);
