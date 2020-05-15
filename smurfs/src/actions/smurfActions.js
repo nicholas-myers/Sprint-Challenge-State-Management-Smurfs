@@ -30,9 +30,10 @@ export const postSmurf = (object) => {
   };
 };
 
-export const deleteSmurf = (object) => {
+export const deleteSmurf = (id) => {
   return (dispatch) => {
-    axios.delete("http://localhost:3333/smurfs", object).then((res) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then((res) => {
       console.log(res);
     });
   };

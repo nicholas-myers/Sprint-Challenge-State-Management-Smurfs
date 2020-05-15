@@ -18,7 +18,8 @@ function Smurf(props) {
       <h2>{props.smurf.name}</h2>
       <p>Age: {props.smurf.age}</p>
       <p>Height: {props.smurf.height}</p>
-      <button onClick={() => props.deleteSmurf(props.smurf)}>X Kill Smurf X</button>
+      <form><button onClick={() => props.deleteSmurf(props.smurf.id)}>X Kill Smurf X</button></form>
+      
     </SmurfCard>
   );
 }
