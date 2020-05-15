@@ -12,8 +12,7 @@ function SmurfList(props) {
     <div className="smurfList">
       <div> Smurfs go here</div>
       {props.loadingSmurfs && <p>Creating your smurfs....</p>}
-      {props.smurfs &&
-        props.smurfs.map((smurf) => {
+      {props.smurfs.map((smurf) => {
           //   console.log(smurf)
           return (
             <Smurf smurf={smurf}/>
