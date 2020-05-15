@@ -11,19 +11,21 @@ const Smurfs = styled.div`
   flex-wrap: wrap;
 `;
 
-function SmurfList(props) {
-  //   console.log(props.smurfs);
-  useEffect(() => {
-    props.fetchSmurfs();
-  }, []);
+function SmurfList({loadingSmurfs, smurfs, fetchSmurfs, deleteSmurf, updatedSmurfs}) {
+  //   console.log(smurfs);
+ useEffect(() => {
+    fetchSmurfs();
+  }, [updatedSmurfs]);
+
+  
   return (
     <section>
-      <h2> Smurfs go here</h2>
+      <h2> Smurfville</h2>
       <Smurfs>
-        {props.loadingSmurfs && <p>Creating your smurfs....</p>}
-        {props.smurfs.map((smurf) => {
+        {loadingSmurfs && <p>Creating your smurfs....</p>}
+        {smurfs.map((smurf) => {
           //   console.log(smurf)
-          return <Smurf key={smurf.id} smurf={smurf} deleteSmurf={props.deleteSmurf}/>;
+          return <Smurf key={smurf.id} smurf={smurf} deleteSmurf={deleteSmurf}/>;
         })}
       </Smurfs>
     </section>
@@ -35,6 +37,7 @@ const mapStateToProps = (state) => {
     loadingSmurfs: state.loadingSmurfs,
     smurfs: state.smurfs,
     smurfingError: state.smurfingError,
+    updatedSmurfs: state.updatedSmurfs
   };
 };
 

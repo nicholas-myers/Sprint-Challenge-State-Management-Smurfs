@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Gargamel creates Smurfs</h1>
+        <img src={require("../img/gargamel.png")} alt="the evil chemist" />
         <SmurfForm />
         <SmurfList />
       </div>

@@ -24,7 +24,8 @@ export const fetchSmurfs = () => {
 
 export const postSmurf = (object) => {
   return (dispatch) => {
-    axios.post("http://localhost:3333/smurfs", object).then((res) => {
+    axios.post("http://localhost:3333/smurfs", object)
+    .then((res) => {
       console.log(res);
     });
   };

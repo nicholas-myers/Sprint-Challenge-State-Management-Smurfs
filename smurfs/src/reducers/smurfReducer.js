@@ -2,13 +2,14 @@ import {
   INITIAL_SMURF_FETCH,
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_FAILURE,
-  CREATE_SMURF
+  CREATE_SMURF,
 } from "../actions/smurfActions";
 
 const initialState = {
   loadingSmurfs: false,
   smurfs: [],
   smurfingError: "",
+  updatedSmurfs: []
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -24,17 +25,18 @@ export const smurfReducer = (state = initialState, action) => {
         loadingSmurfs: false,
         smurfs: action.payload,
       };
-      case FETCH_SMURF_FAILURE:
-          return {
-              ...state,
-              smurfingError: "Get the smurf out of here Gargamel, there are no smurfs here!"
-          }
-          case CREATE_SMURF:
-              console.log(action.payload)
-              return {
-                  ...state,
-                  smurfs: [...state.smurfs, action.payload]
-              }
+    case FETCH_SMURF_FAILURE:
+      return {
+        ...state,
+        smurfingError:
+          "Get the smurf out of here Gargamel, there are no smurfs here!",
+      };
+    case CREATE_SMURF:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+        // updatedSmurfs: state.smurfs,
+      };
     default:
       return state;
   }

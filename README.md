@@ -24,11 +24,11 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [x] What problem does the context API help solve?
 
-Context solve the problem of props drilling and passing props to components that don't need state.
+Context solves the problem of props drilling and passing props to components that don't need state.
 
 - [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
-Actions are the functions that dispatch an object with a type and payload. actions send their actions to the reducer where the data is set to state. reducers set the initial state that is then passed through a create store function. the store is the single place where all state exists. the store is the single source of truth because each component recieves its state from the store as the data changes it will change for every component thus single source.
+Actions are the functions that dispatch an object with a type and payload. actions send their actions to the reducer where the data is set to state. reducers set the initial state that is then passed through a create store function. the store is the single place where all state exists. the store is the single source of truth because each component recieves its state from the store as the data changes, it will also change for every component thus single source.
 
 - [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 
@@ -36,7 +36,7 @@ Application state is one state that is used through each component throughout th
 
 - [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 
-Thunk is passed through middleware to allow as to create a function to then make our dispatch calls to as return in our actions. Thunk also allows for asyncronous axios calls returned in our action function. the change is that our action no loger just returns our action object, it returns a function that can execute asyncronously.
+Thunk is passed through middleware to allow as to create a function to then make our dispatch calls as return in our actions. Thunk also allows for asyncronous axios calls returned in our action function. the change is that our action no loger just returns our action object, it returns a function that can execute asyncronously.
 
 - [x] What is your favorite state management system you've learned and this sprint? Please explain why!
 
