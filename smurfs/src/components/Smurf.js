@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux"
+
 
 
 const SmurfCard = styled.div`
@@ -12,15 +12,17 @@ const SmurfCard = styled.div`
   margin: 1%;
 `;
 
-function Smurf({ smurf }) {
+function Smurf(props) {
   return (
     <SmurfCard>
-      <h2>{smurf.name}</h2>
-      <p>Age: {smurf.age}</p>
-      <p>Height: {smurf.height}</p>
-      <button>X Kill Smurf X</button>
+      <h2>{props.smurf.name}</h2>
+      <p>Age: {props.smurf.age}</p>
+      <p>Height: {props.smurf.height}</p>
+      <button onClick={() => props.deleteSmurf(props.smurf)}>X Kill Smurf X</button>
     </SmurfCard>
   );
 }
 
-export default connect()(Smurf);
+
+
+export default Smurf;

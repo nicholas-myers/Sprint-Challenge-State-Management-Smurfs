@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchSmurfs } from "../actions/smurfActions";
+import { fetchSmurfs, deleteSmurf } from "../actions/smurfActions";
 import Smurf from "./Smurf";
 
 import styled from "styled-components";
@@ -23,7 +23,7 @@ function SmurfList(props) {
         {props.loadingSmurfs && <p>Creating your smurfs....</p>}
         {props.smurfs.map((smurf) => {
           //   console.log(smurf)
-          return <Smurf key={smurf.id} smurf={smurf} />;
+          return <Smurf key={smurf.id} smurf={smurf} deleteSmurf={props.deleteSmurf}/>;
         })}
       </Smurfs>
     </section>
@@ -38,4 +38,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSmurfs })(SmurfList);
+export default connect(mapStateToProps, { fetchSmurfs, deleteSmurf })(SmurfList);
