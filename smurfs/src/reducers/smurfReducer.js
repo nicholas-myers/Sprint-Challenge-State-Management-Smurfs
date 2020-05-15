@@ -3,7 +3,7 @@ import {
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_FAILURE,
   CREATE_SMURF,
-  UPDATE_SMURFS
+  DELETE_SMURF
 } from "../actions/smurfActions";
 
 const initialState = {
@@ -35,12 +35,17 @@ export const smurfReducer = (state = initialState, action) => {
     case CREATE_SMURF:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        updatedSmurfs: [...state.smurfs, action.payload],
       };
-      case UPDATE_SMURFS:
+      case DELETE_SMURF:
+        const newSmurfList = state.updatedSmurfs.filter(smurf=>{
+          if(action.payload !== smurf.id) {
+            return smurf
+          }
+        })
         return {
           ...state,
-          updatedSmurfs: [action.payload]
+          updatedSmurfs: newSmurfList
         }
     default:
       return state;

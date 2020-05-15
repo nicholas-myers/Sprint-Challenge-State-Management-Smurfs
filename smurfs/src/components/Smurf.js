@@ -11,7 +11,6 @@ const SmurfCard = styled.div`
 `;
 
 const KillSmurf = styled.button`
-
   background-color: red;
   border: 2px solid darkred;
   border-radius: 1rem;
@@ -27,11 +26,9 @@ function Smurf(props) {
       <h3>{props.smurf.name}</h3>
       <p>Age: {props.smurf.age}</p>
       <p>Height: {props.smurf.height}</p>
-      <form>
-        <KillSmurf onClick={() => props.deleteSmurf(props.smurf.id)}>
-          X Kill Smurf X
-        </KillSmurf>
-      </form>
+      <KillSmurf onClick={() => props.deleteSmurf(props.smurf.id)}>
+        X Kill Smurf X
+      </KillSmurf>
     </SmurfCard>
   );
 }
