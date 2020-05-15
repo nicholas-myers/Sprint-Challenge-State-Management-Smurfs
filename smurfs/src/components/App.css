@@ -1,7 +1,25 @@
 .App {
   text-align: center;
+  color: navy;
 }
 
 body {
   background-color: lightblue;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+
+
+label {
+  color: navy;
+font-size: 2rem;
+margin: 1%;
+}
+
+input {
+  font-size: 2rem;
+  width: 20%;
 }

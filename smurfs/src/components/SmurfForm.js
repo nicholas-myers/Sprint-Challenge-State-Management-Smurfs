@@ -1,6 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postSmurf } from "../actions/smurfActions"
+import { postSmurf } from "../actions/smurfActions";
+
+import styled from "styled-components";
+
+const CreateButton = styled.button`
+  background-color: blue;
+  color: lightgray;
+  padding: 1rem;
+  border: 1px solid navy;
+  border-radius: 1rem;
+  font-size: 2rem;
+  margin: 3%;
+`;
 
 const initialSmurfInputs = {
   smurfName: "",
@@ -9,7 +21,6 @@ const initialSmurfInputs = {
 };
 
 function SmurfForm(props) {
-
   const [smurfInputs, setSmurfInputs] = useState(initialSmurfInputs);
 
   const changeSmurfInput = (event) => {
@@ -28,12 +39,9 @@ function SmurfForm(props) {
       id: Date.now(),
     };
     // console.log(newSmurf);
-    props.postSmurf(newSmurf)
+    props.postSmurf(newSmurf);
     setSmurfInputs(initialSmurfInputs);
-    
   };
-
-  
 
   return (
     <form onSubmit={createSmurf}>
@@ -56,7 +64,7 @@ function SmurfForm(props) {
         value={smurfInputs.smurfHeight}
         onChange={changeSmurfInput}
       />
-      <button>Create Smurf!</button>
+      <CreateButton>Create Smurf!</CreateButton>
     </form>
   );
 }
@@ -69,4 +77,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {postSmurf})(SmurfForm);
+export default connect(mapStateToProps, { postSmurf })(SmurfForm);
