@@ -12,7 +12,13 @@ h1, h2 {
   text-decoration: underline;
 }
 
+img {
+  height: 20vh;
+}
 
+.gargamel {
+  height: 40vh;
+}
 
 label {
   color: navy;
