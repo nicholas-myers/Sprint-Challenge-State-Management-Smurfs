@@ -21,8 +21,6 @@ const initialSmurfInputs = {
 };
 
 function SmurfForm(props) {
-   
-    
   const [smurfInputs, setSmurfInputs] = useState(initialSmurfInputs);
 
   const changeSmurfInput = (event) => {
@@ -34,7 +32,7 @@ function SmurfForm(props) {
   };
 
   const createSmurf = (event) => {
-      // event.preventDefault()
+    event.preventDefault();
     const newSmurf = {
       name: smurfInputs.smurfName,
       age: smurfInputs.smurfAge,
@@ -43,7 +41,7 @@ function SmurfForm(props) {
     };
     // console.log(newSmurf);
     props.postSmurf(newSmurf);
-    
+
     setSmurfInputs(initialSmurfInputs);
   };
 

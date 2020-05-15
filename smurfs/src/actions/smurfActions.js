@@ -4,6 +4,7 @@ export const INITIAL_SMURF_FETCH = "INITIAL_SMURF_FETCH";
 export const FETCH_SMURF_SUCCESS = "FETCH_SMURF_SUCCESS";
 export const FETCH_SMURF_FAILURE = "FETCH_SMURF_FAILURE";
 export const CREATE_SMURF = "CREATE_SMURF";
+export const UPDATE_SMURFS = "UPDATE_SMURFS"
 
 export const fetchSmurfs = () => {
   return (dispatch) => {
@@ -28,6 +29,7 @@ export const postSmurf = (object) => {
     .then((res) => {
       console.log(res);
     });
+    dispatch({ type: UPDATE_SMURFS, payload: object})
   };
 };
 

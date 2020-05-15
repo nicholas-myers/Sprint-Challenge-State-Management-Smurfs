@@ -15,7 +15,7 @@ function SmurfList({loadingSmurfs, smurfs, fetchSmurfs, deleteSmurf, updatedSmur
   //   console.log(smurfs);
  useEffect(() => {
     fetchSmurfs();
-  }, [updatedSmurfs]);
+  }, [fetchSmurfs, updatedSmurfs]);
 
   
   return (

@@ -3,6 +3,7 @@ import {
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_FAILURE,
   CREATE_SMURF,
+  UPDATE_SMURFS
 } from "../actions/smurfActions";
 
 const initialState = {
@@ -35,8 +36,12 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
-        // updatedSmurfs: state.smurfs,
       };
+      case UPDATE_SMURFS:
+        return {
+          ...state,
+          updatedSmurfs: [action.payload]
+        }
     default:
       return state;
   }
